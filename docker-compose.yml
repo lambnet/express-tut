@@ -1,0 +1,15 @@
+# https://faun.pub/managing-mongodb-on-docker-with-docker-compose-26bf8a0bbae3
+version: '3.7'
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongodb-express
+    environment:
+      MONGO_INITDB_DATABASE: expressjs_tut
+    ports:
+      - 27017:27017
+    volumes:
+    #  - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - mongodb_data_container:/data/db
+volumes:
+  mongodb_data_container:
